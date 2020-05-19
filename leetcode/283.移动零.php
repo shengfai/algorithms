@@ -45,43 +45,13 @@ class Solution
             return $nums;
         }
 
-        $size = count($nums);
-
-        /**
-         * loop 遇到 0 移除，末尾添加
-         */
-        // for ($i=0; $i<$size; $i++) {
-        //     if ($nums[$i] == 0) {
-        //         unset($nums[$i]);       // O(n)
-        //         array_push($nums, 0);
-        //     }
-        // }
-
-        /**
-         * 两次遍历 O(n)
-         */
-        // for ($i = 0; $i < $size; $i++) {
-        //     if ($nums[$i] != 0) {
-        //         $nums[$lastNonZeroFoundAt++] = $nums[$i];
-        //     }
-        // }
-
-        // for ($i = $lastNonZeroFoundAt; $i < $size; $i++) {
-        //     $nums[$i] = 0;
-        // }
-
-        /**
-         * 交换元素
-         */
         $j = 0;
-        for ($i = 0; $i < $size; $i++) {
+        for ($i = 0; $i < count($nums); $i++) {
             if ($nums[$i] != 0) {
                 $nums[$j] = $nums[$i];
-
                 if ($i != $j) {
                     $nums[$i] = 0;
                 }
-
                 $j++;
             }
         }
